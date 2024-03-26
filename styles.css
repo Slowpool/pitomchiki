@@ -1,0 +1,146 @@
+::placeholder {
+    color: rgb(9, 14, 114);
+}
+
+body {
+    margin: 0px;
+}
+/* id */
+#main_header {
+    position: absolute;
+    left: 510px;
+    font-size: 64px;
+    color: rgb(9, 14, 114);
+    text-transform: uppercase;
+}
+/* id */
+#caption_after_main_header {
+    position: absolute;
+    padding-top: 31px;
+    padding-left: 921px;
+    font-size: 30px;
+    color: rgb(9, 14, 114);
+}
+/* id */
+#upper_header {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    /* idk which way is the best */
+    /* padding-left: 790px; */
+    padding-top: 100px;
+}
+/* id */
+#caption {
+    /* padding-left: 929px; */
+    color: white;
+    padding-left: 13px;
+    font-size: 32px;
+}
+/* id */
+#more_big_caption {
+    color: white;
+    font-size: 36px;
+    /* font-family: "Open Sans"; */
+}
+/* id */
+#content_block {
+    padding-top: 100px;
+    text-align: center;
+}
+
+input[type="q"] {
+    color: rgb(9, 14, 114);
+    height: 49px;
+    width: 355px;
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 10px;
+    margin-top: 0px;
+    font-size: 40px;
+    border: 0 none;
+}
+
+button[type="q_button"] {
+    height: 50px;
+    width: 49px;
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: -5px;
+    margin-top: 3px;
+    border: 0 none;
+}
+
+button[type="usual_button"] {
+    height: 71px;
+    font-size: 36px;
+    color: rgb(5, 0, 255);
+    border-width: 2px;
+    background-color: rgb(217, 217, 217);
+    margin-bottom: 40px;
+}
+
+button[type="registration_button"] {
+    height: 125px;
+    font-size: 36px;
+    color: rgb(5, 0, 255);
+    border-width: 2px;
+    background-color: rgb(217, 217, 217);
+    margin-bottom: 40px;
+}
+
+img[type="q_image"] {
+    height: 49px;
+    width: 49px;
+}
+
+table[type="header_block"] {
+    padding-left: 501px;
+    padding-top: 70px;
+}
+
+table[type="login_and_password"] {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+td[type="align_right"] {
+    text-align: right;
+}
+
+td[type="input_box"] {
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+input[type="usual_input"] {
+    color: rgb(9, 14, 114);
+    height: 45px;
+    width: 360px;
+    font-size: 36px;
+}
+
+
+
+/* #header h1 {
+            padding: 20px;
+            margin: 0;
+        }
+
+        #sidebar {
+            width: 150px;
+            background: #ECF5E4;
+            border-right: 1px solid #231F20;
+            top: 82px;
+            bottom: 0;
+        }
+
+        #content {
+            top: 82px;
+            left: 170px;
+            bottom: 0;
+            right: 0;
+        } */
