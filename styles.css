@@ -49,6 +49,11 @@ body {
     text-align: center;
 }
 
+/* a[type="without_underline"] {
+    text-decoration: none;
+    color:rgb(5, 0, 255);
+} */
+
 input[type="q"] {
     color: rgb(9, 14, 114);
     height: 49px;
@@ -82,6 +87,16 @@ button[type="usual_button"] {
 
 button[type="registration_button"] {
     height: 125px;
+    font-size: 36px;
+    color: rgb(5, 0, 255);
+    border-width: 2px;
+    background-color: rgb(217, 217, 217);
+    margin-bottom: 40px;
+}
+
+button[type="chapter_selector"] {
+    width: 50px;
+    height: 71px;
     font-size: 36px;
     color: rgb(5, 0, 255);
     border-width: 2px;
