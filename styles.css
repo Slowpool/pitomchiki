@@ -5,22 +5,47 @@
 body {
     margin: 0px;
 }
+
+#center {
+    text-align: center;
+}
+
 /* id */
-#main_heade {
+#unreg_main_header {
     position: absolute;
     left: 510px;
     font-size: 64px;
     color: rgb(9, 14, 114);
     text-transform: uppercase;
 }
+
 /* id */
-#caption_after_main_header {
+#main_header {
+    position: absolute;
+    left: 255px;
+    font-size: 64px;
+    color: rgb(9, 14, 114);
+    text-transform: uppercase;
+}
+
+/* id */
+#unreg_caption_after_main_header {
     position: absolute;
     padding-top: 31px;
     padding-left: 921px;
     font-size: 30px;
     color: rgb(9, 14, 114);
 }
+
+/* id */
+#caption_after_main_header {
+    position: absolute;
+    padding-top: 31px;
+    padding-left: 666px;
+    font-size: 30px;
+    color: rgb(9, 14, 114);
+}
+
 /* id */
 #upper_header {
     font-size: 36px;
@@ -30,6 +55,7 @@ body {
     /* padding-left: 790px; */
     padding-top: 100px;
 }
+
 /* id */
 #caption {
     /* padding-left: 929px; */
@@ -37,12 +63,14 @@ body {
     padding-left: 13px;
     font-size: 32px;
 }
+
 /* id */
 #more_big_caption {
     color: white;
     font-size: 36px;
     /* font-family: "Open Sans"; */
 }
+
 /* id */
 #content_block {
     padding-top: 100px;
@@ -56,6 +84,7 @@ body {
 
 input[type="q"] {
     color: rgb(9, 14, 114);
+    background-color: rgb(217, 217, 217);
     height: 49px;
     width: 355px;
     padding-left: 0px;
@@ -95,13 +124,25 @@ button[type="registration_button"] {
 }
 
 button[type="chapter_selector"] {
-    width: 50px;
-    height: 71px;
+    width: 270px;
+    height: 45px;
     font-size: 36px;
     color: rgb(5, 0, 255);
     border-width: 2px;
     background-color: rgb(217, 217, 217);
     margin-bottom: 40px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+button[type="expanded_button"] {
+    /* right: 0; */
+    /* top: 0; */
+    width: 100%;
+    height: 45px;
+    /* border-top-left-radius: 0; */
+    /* border-bottom-left-radius: 0; */
+    /* border-bottom-right-radius: 0; */
 }
 
 img[type="q_image"] {
@@ -121,6 +162,15 @@ table[type="login_and_password"] {
     padding-bottom: 50px;
 }
 
+table[type="chapters"] {
+    padding-left: 261px;
+    padding-top: 85px;
+}
+
+table[type="whole_profile"] {
+    padding-left: 250px;
+}
+
 td[type="align_right"] {
     text-align: right;
 }
@@ -131,10 +181,14 @@ td[type="input_box"] {
     padding-bottom: 15px;
 }
 
+td[type="left_profile_part"] {
+    width: 400px;
+}
+
 input[type="usual_input"] {
     color: rgb(9, 14, 114);
     height: 45px;
-    width: 360px;
+    width: 487px;
     font-size: 36px;
 }
 
