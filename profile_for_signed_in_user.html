@@ -8,22 +8,23 @@
 </head>
 
 <body background="home_sweet_home.jpg" link="white" alink="grey" vlink="white">
+    <script src="profile_for_signed_in_user.js"></script>
     <div id="wide_page">
         <div id="main_header">питомчики</div>
         <div id="caption_after_main_header">/Профиль</div>
         <table type="chapters" cellspacing="0">
             <tr>
                 <td>
-                    <button type="chapter_selector">Профиль</button>
+                    <button type="chapter_selector" onClick="openSignedInProfile()">Профиль</button>
                 </td>
                 <td>
                     <button type="chapter_selector" onClick="openSignedInProfilePhotos()">Фотографии</button>
                 </td>
                 <td>
-                    <button type="chapter_selector">Особенности</button>
+                    <button type="chapter_selector" onClick="openSignedInProfileFeatures()">Особенности</button>
                 </td>
                 <td>
-                    <button type="chapter_selector">Отзывы</button>
+                    <button type="chapter_selector" onClick="openSignedInProfileReviews()">Отзывы</button>
                 </td>
             </tr>
         </table>
