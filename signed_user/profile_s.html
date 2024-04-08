@@ -4,27 +4,27 @@
 <head>
     <title>Профиль питомчика</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body background="home_sweet_home.jpg" link="white" alink="grey" vlink="white">
-    <script src="profile_for_signed_in_user.js"></script>
+<body background="../images/home_sweet_home.jpg" link="white" alink="grey" vlink="white">
+    <script src="../scripts.js"></script>
     <div id="wide_page">
         <div id="main_header">питомчики</div>
         <div id="caption_after_main_header">/Профиль</div>
         <table type="chapters" cellspacing="0">
             <tr>
                 <td>
-                    <button type="chapter_selector" onClick="openSignedInProfile()">Профиль</button>
+                    <button type="chapter_selector" onClick="openProfile(true)">Профиль</button>
                 </td>
                 <td>
-                    <button type="chapter_selector" onClick="openSignedInProfilePhotos()">Фотографии</button>
+                    <button type="chapter_selector" onClick="openProfilePhotos(true)">Фотографии</button>
                 </td>
                 <td>
-                    <button type="chapter_selector" onClick="openSignedInProfileFeatures()">Особенности</button>
+                    <button type="chapter_selector" onClick="openProfileFeatures(true)">Особенности</button>
                 </td>
                 <td>
-                    <button type="chapter_selector" onClick="openSignedInProfileReviews()">Отзывы</button>
+                    <button type="chapter_selector" onClick="openProfileReviews(true)">Отзывы</button>
                 </td>
             </tr>
         </table>
@@ -39,12 +39,12 @@
                     <table cellspacing="20">
                         <tr>
                             <td type="align_center">
-                                <div id="caption">Фото  питомчика</div>
+                                <div id="caption">Фото питомчика</div>
                             </td>
                         </tr>
                         <tr>
                             <td type="align_center">
-                                <img src="shpatel.jpg" height="350" width="350" >
+                                <img src="../images/shpatel.jpg" height="350" width="350">
                             </td>
                         </tr>
                         <tr>
@@ -101,7 +101,13 @@
                                 <div id="caption">Длина</div>
                             </td>
                             <td>
-                                <input type="usual_input">
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -109,7 +115,13 @@
                                 <div id="caption">Вес</div>
                             </td>
                             <td>
-                                <input type="usual_input">
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -117,22 +129,24 @@
                                 <div id="caption">Статус</div>
                             </td>
                             <td>
-                                <!-- COMBOBOX -->
-                                <input type="usual_input">
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
                             <td>
-                                <!-- COMBOBOX -->
-                                <button type="width_expanded_button">Сохранить изменения</button>
+                                <button type="width_expanded_button" onClick="saveChanges()">Сохранить изменения</button>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
-        
     </div>
 </body>
 
