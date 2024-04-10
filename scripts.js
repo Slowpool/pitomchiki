@@ -36,6 +36,7 @@ function openProfileReviews(signed) {
     }
 }
 
-function saveChanges() {
-    
+function logOut() {
+    alert('successfull');
+    window.location.replace("../log_out.php");
 }

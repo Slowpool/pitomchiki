@@ -123,6 +123,18 @@ button[type="usual_button"] {
     margin-bottom: 40px;
 }
 
+button[type="log_out_button"] {
+    height: 45px;
+    width: 200px;
+    font-size: 36px;
+    color: rgb(5, 0, 255);
+    border-width: 2px;
+    background-color: rgb(217, 217, 217);
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: 550px;
+}
+
 button[type="registration_button"] {
     height: 125px;
     font-size: 36px;
@@ -209,11 +221,20 @@ td[type="left_profile_part"] {
     width: 400px;
 }
 
-input[type="usual_input"] {
+input[type=text] {
     color: rgb(9, 14, 114);
     height: 45px;
     width: 440px;
     font-size: 36px;
+}
+
+input[type=submit] {
+    height: 71px;
+    font-size: 36px;
+    color: rgb(5, 0, 255);
+    border-width: 2px;
+    background-color: rgb(217, 217, 217);
+    margin-bottom: 40px;
 }
 
 
