@@ -11,4 +11,3 @@ header('location: '. __DIR__ . '\\index.html');
 //     echo "session wasn't destroyed";
 // }
 
-?>

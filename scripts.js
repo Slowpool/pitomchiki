@@ -1,6 +1,7 @@
 const name = document.querySelector(".name");
 
 function openProfilePhotos(signed) {
+    alert('profile');
     if (signed) {
         window.location.replace("../signed_user/profile_photos_s.html");
     }
@@ -37,8 +38,7 @@ function openProfileReviews(signed) {
 }
 
 function logOut() {
-    window.location.replace("../index.html");
     // window.location.replace("../unsigned_user/profile_reviews_s.html");
     // alert('successfull');
-    // window.location.replace("../log_out.php");
+    window.location.replace("../log_out.php");
 }
