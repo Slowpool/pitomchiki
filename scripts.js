@@ -40,5 +40,6 @@ function openProfileReviews(signed) {
 function logOut() {
     // window.location.replace("../unsigned_user/profile_reviews_s.html");
     // alert('successfull');
-    window.location.replace("../log_out.php");
+    alert('successful');
+    window.location.replace("C:/Users/azgel/Desktop/OSPanel/domains/localhost/pitomchiki/log_out.php");
 }
