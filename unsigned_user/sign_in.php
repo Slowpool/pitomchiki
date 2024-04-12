@@ -7,21 +7,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    echo 'login: ', $_POST['login'];
-    echo "<br>";
-    echo 'password: ', $_POST['password'];
-    echo "<br>";
+    // echo 'login: ', $_POST['login'];
+    // echo "<br>";
+    // echo 'password: ', $_POST['password'];
+    // echo "<br>";
 
     if (is_correct_credential($login, $password)) {
-        echo 'correct credential';
-        header('location: ..\\signed_user\\profile_s.html');
+        header('location: ..\\signed_user\\profile_s.php');
     } else {
-        echo 'incorrect credential';
+        echo '<script>';
+        echo ' alert("incorrect credentials")';
+        echo '</script>';
     }
-    echo "<br>";
 
-
-    // $statement->close();
     $connection->close();
 }
 ?>

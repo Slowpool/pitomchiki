@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '\\session.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -12,7 +17,8 @@
     <div id="wide_page">
         <div id="main_header">питомчики</div>
         <div id="caption_after_main_header">/Профиль
-            <button type="log_out_button" onClick="logOut()">Выйти</button>
+            <a href="../log_out.php" role="button">Выйти</a>
+            <!-- <button type="log_out_button" onClick="logOut()">Выйти</button> -->
         </div>
         <table type="chapters" cellspacing="0">
             <tr>
@@ -142,7 +148,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <button type="width_expanded_button" onClick="saveChanges()">Сохранить изменения</button>
+                                <button type="width_expanded_button" onClick="saveChanges()">Сохранить
+                                    изменения</button>
                             </td>
                         </tr>
                     </table>

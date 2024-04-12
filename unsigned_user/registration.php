@@ -7,10 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    echo 'login: ', $_POST['login'];
-    echo "<br>";
-    echo 'password: ', $_POST['password'];
-    echo "<br>";
+    // echo 'login: ', $_POST['login'];
+    // echo "<br>";
+    // echo 'password: ', $_POST['password'];
+    // echo "<br>";
 
     if (!existent_login($login)) {
         // SQL INJECTION PROTECTION VIA SUBSTITUTION OF DATA THROUGH THE STATEMENT
@@ -20,21 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         $statement->execute();
 
         if ($statement->affected_rows == 1) {
-            echo "successfull adding";
-            header('location: ..\\signed_user\\profile_s.html');
-        } else {
-            echo "failed adding";
+            header('location: ..\\signed_user\\profile_s.php');
         }
+        $statement->close();
     } else {
-        echo 'such a login already exists';
+        echo '<script>';
+        echo ' alert("such a login already exists")';
+        echo '</script>';
     }
-    echo "<br>";
 
-    // $stmt->close();
     $GLOBALS['connection']->close();
-
-} else {
-    echo 'wrong method';
 }
 ?>
 
@@ -57,39 +52,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         <div id="more_big_caption">Регистрация</div>
 
         <form action="" method="post">
-            <input type="text" name="login">
-            <input type="text" name="password">
-            <input type="submit" name="submit" value="Зарегистрироваться и продолжить
-            заполнение информации в профиле">
+            <table type="login_and_password" cellspacing="0">
+                <tr>
+                    <td type="align_right">
+                        <div id="caption">Придумайте ник питомчика</div>
+                    </td>
+                    <td type="input_box">
+                        <input type="text" name="login">
+                    </td>
+                </tr>
+                <tr>
+                    <td type="align_right">
+                        <div id="caption">Придумайте пароль</div>
+                    </td>
+                    <td type="input_box">
+                        <div id="usual_input">
+                            <input type="text" name="password">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" name="submit" value="Зарегистрироваться и перейти в профиль">
         </form>
-
-        <!-- <table type="login_and_password" cellspacing="0">
-            <tr>
-                <td type="align_right">
-                    <div id="caption">Придумайте ник питомчика</div>
-                </td>
-                <td type="input_box">
-                    <input type="usual_input">
-                </td>
-            </tr>
-            <tr>
-                <td type="align_right">
-                    <div id="caption">Придумайте пароль</div>
-                </td>
-                <td type="input_box">
-                    <div id="usual_input">
-                        <input type="usual_input">
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-        <button type="registration_button">
-            Зарегистрироваться и продолжить
-            <br>
-            заполнение информации в профиле
-        </button> -->
-
         <div id="more_big_caption">
             Уже есть профиль?
             <a href="sign_in.php">Войти</a>
