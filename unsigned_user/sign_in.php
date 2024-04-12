@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '\\..\\functions.php';
 require_once __DIR__ . '\\..\\config.php';
+require_once __DIR__ . '\\..\\signed_user\\session.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $login = $_POST['login'];
@@ -13,11 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     // echo "<br>";
 
     if (is_correct_credential($login, $password)) {
+        $_SESSION["login"] = $login;
         header('location: ..\\signed_user\\profile_s.php');
     } else {
-        echo '<script>';
-        echo ' alert("incorrect credentials")';
-        echo '</script>';
+        alert('Неверный логин или пароль');
     }
 
     $connection->close();

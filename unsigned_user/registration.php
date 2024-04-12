@@ -6,27 +6,34 @@ require_once __DIR__ . '\\..\\config.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
-
-    // echo 'login: ', $_POST['login'];
-    // echo "<br>";
-    // echo 'password: ', $_POST['password'];
-    // echo "<br>";
+    // TODO set max length to input instead of the next one
+    if (strlen($login) > 30) {
+        alert('Логин должен быть не длиннее 30 символов');
+    }
 
     if (!existent_login($login)) {
+        // TODO here could be transaction
+        mysqli_begin_transaction($GLOBALS['connection']);
         // SQL INJECTION PROTECTION VIA SUBSTITUTION OF DATA THROUGH THE STATEMENT
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $statement = $GLOBALS['connection']->prepare("INSERT INTO user (login, password) VALUES (?, ?)");
         $statement->bind_param("ss", $login, $hashed_password);
         $statement->execute();
 
-        if ($statement->affected_rows == 1) {
+        $statement2 = $GLOBALS['connection']->prepare("INSERT INTO pet (nickname) VALUES (?)");
+        $statement2->bind_param("s", $login);
+        $statement2->execute();
+
+        if ($statement->affected_rows == 1 && $statement2->affected_rows == 1) {
+            mysqli_commit($GLOBALS['connection']);
             header('location: ..\\signed_user\\profile_s.php');
+        } else {
+            mysqli_rollback($GLOBALS['connection']);
+            alert('Ошибка регистрации');
         }
         $statement->close();
     } else {
-        echo '<script>';
-        echo ' alert("such a login already exists")';
-        echo '</script>';
+        alert('Введенный логин занят');
     }
 
     $GLOBALS['connection']->close();
@@ -58,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                         <div id="caption">Придумайте ник питомчика</div>
                     </td>
                     <td type="input_box">
-                        <input type="text" name="login">
+                        <input type="text" name="login" maxlength="30">
                     </td>
                 </tr>
                 <tr>

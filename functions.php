@@ -8,22 +8,42 @@ function is_correct_credential($login, $password)
 
 function existent_login($login)
 {
-    return count(select_row($login)) == 1;
+    return count(get_password_as_row($login)) == 1;
 }
 
 function get_hashed_password($login)
 {
-    return select_row($login)[0];
+    return get_password_as_row($login)[0];
 }
 
-function select_row($login)
+function get_password_as_row($login)
 {
     // SQL INJECTION PROTECTION VIA SUBSTITUTION OF DATA THROUGH THE STATEMENT
     $statement = $GLOBALS['connection']->prepare("SELECT password
                                                   FROM user
-                                                  WHERE login = (?)");
+                                                  WHERE login = ?");
     $statement->bind_param('s', $login);
     $statement->execute();
     $result_set = $statement->get_result();
-    return (array)$result_set->fetch_row();
+    $statement->close();
+    return (array) $result_set->fetch_row();
+}
+
+function alert($message)
+{
+    echo '<script>';
+    echo " alert('" . $message . "')";
+    echo '</script>';
+}
+
+function get_pet_data($nickname)
+{
+    $statement = $GLOBALS['connection']->prepare("SELECT *
+                                                  FROM pet
+                                                  WHERE nickname = ?");
+    $statement->bind_param('s', $nickname);
+    $statement->execute();
+    $result_set = $statement->get_result();
+    $statement->close();
+    return $result_set->fetch_row();
 }

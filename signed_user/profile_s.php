@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '\\session.php';
+require_once __DIR__ . '\\..\\functions.php';
+
+// TODO maybe it'll be better to select it to special function like download_pet_info()
+$GLOBALS['pet_data'] = get_pet_data($_SESSION['login']);
 
 ?>
 
@@ -18,7 +22,6 @@ require_once __DIR__ . '\\session.php';
         <div id="main_header">питомчики</div>
         <div id="caption_after_main_header">/Профиль
             <a href="../log_out.php" role="button">Выйти</a>
-            <!-- <button type="log_out_button" onClick="logOut()">Выйти</button> -->
         </div>
         <table type="chapters" cellspacing="0">
             <tr>
@@ -69,7 +72,10 @@ require_once __DIR__ . '\\session.php';
                                 <div id="caption">Кличка</div>
                             </td>
                             <td>
-                                <input type="usual_input">
+                                <?php
+                                $pet_name = $GLOBALS['pet_data']['name'];
+                                echo '<input type="usual_input" value="' . $pet_name . '">';
+                                ?>
                             </td>
                         </tr>
                         <tr>
