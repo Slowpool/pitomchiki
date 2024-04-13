@@ -199,7 +199,7 @@ table[type="chapters"] {
 }
 
 table[type="whole_profile"] {
-    padding-left: 250px;
+    margin-left: 250px;
 }
 
 td[type="align_right"] {
@@ -221,6 +221,11 @@ td[type="left_profile_part"] {
     width: 400px;
 }
 
+td[type="right_profile_part"] {
+    width: 880px;
+}
+
+input[type=number],
 input[type=text] {
     color: rgb(9, 14, 114);
     height: 45px;

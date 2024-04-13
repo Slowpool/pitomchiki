@@ -63,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 </tr>
             </table>
 
-
             <input type="submit" name="submit" value="Вход">
         </form>
 

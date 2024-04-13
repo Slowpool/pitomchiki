@@ -31,9 +31,7 @@ function get_password_as_row($login)
 
 function alert($message)
 {
-    echo '<script>';
-    echo " alert('" . $message . "')";
-    echo '</script>';
+    echo '<script>', " alert('" . $message . "')", '</script>';
 }
 
 function get_pet_data($nickname)
@@ -46,4 +44,8 @@ function get_pet_data($nickname)
     $result_set = $statement->get_result();
     $statement->close();
     return $result_set->fetch_row();
+}
+
+function get_all_lengths() {
+    return $GLOBALS['connection']->query('SELECT category FROM length');
 }
