@@ -47,5 +47,36 @@ function get_pet_data($nickname)
 }
 
 function get_all_lengths() {
-    return $GLOBALS['connection']->query('SELECT category FROM length');
+    return get_all_categories('length');
+}
+
+function get_all_weights() {
+    return get_all_categories('weight');
+}
+
+function get_all_statuses() {
+    return get_all_categories('status');
+}
+
+function get_all_categories($table) {
+    return $GLOBALS['connection']->query("SELECT category FROM $table");
+}
+
+function update_pet_info($name, $kind, $year_of_birth, $month_of_birth, $day_of_birth, $length_id, $weight_id, $status_id) {
+    $statement = $GLOBALS['connection']->prepare(
+        'UPDATE pet
+         SET name = ?,
+         kind = ?,
+         year_of_birth = ?,
+         month_of_birth = ?,
+         day_of_birth = ?,
+         length_id = ?,
+         weight_id = ?,
+         status_id = ?
+         WHERE nickname = ?');
+    $statement->bind_param('ssiiiiiis', $name, $kind, $year_of_birth, $month_of_birth, $day_of_birth, $length_id, $weight_id, $status_id, $_SESSION['login']);
+    $statement->execute();
+    $affected_rows = $statement->affected_rows;
+    $statement->close();
+    return $affected_rows == 1;
 }

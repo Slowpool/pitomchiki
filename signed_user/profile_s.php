@@ -15,7 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $length_id = $_POST['length_id'];
     $weight_id = $_POST['weight_id'];
     $status_id = $_POST['status_id'];
-
+    update_pet_info($name, $kind, $year_of_birth, $month_of_birth, $day_of_birth, $length_id, $weight_id, $status_id);
+    // echo 'name:', $name, '<br>';
+    // echo 'kind:', $kind, '<br>';
+    // echo 'year_of_birth:', $year_of_birth, '<br>';
+    // echo 'month_of_birth:', $month_of_birth, '<br>';
+    // echo 'day_of_birth:', $day_of_birth, '<br>';
+    // echo 'length_id:', $length_id, '<br>';
+    // echo 'weight_id:', $weight_id, '<br>';
+    // echo 'status_id:', $status_id, '<br>';
 
 }
 ?>
@@ -58,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             </div>
         </div>
         <form action="" method="post">
-            <table type="whole_profile" border="1">
+            <table type="whole_profile">
                 <tr>
                     <td type="left_profile_part">
                         <table cellspacing="20">
@@ -80,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                         </table>
                     </td>
                     <td type="right_profile_part">
-                        <table type="pitomchik_characters" cellspacing="20" border="1">
+                        <table type="pitomchik_characters" cellspacing="20">
                             <tr>
                                 <td type="align_right">
                                     <div id="caption">Кличка</div>
@@ -141,17 +149,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                     <div id="caption">Длина</div>
                                 </td>
                                 <td>
-                                    <select>
+                                    <select name="length_id">
                                         <?php
-                                        // TODO implement via length of row instead of $index
                                         $lengths = get_all_lengths();
                                         $index = 1;
-                                        do {
-                                            $length = $lengths->fetch_row()[0];
-                                            echo "<option value=\"$index\">$length</option>";
+                                        while ($length_category = $lengths->fetch_row()[0]) {
+                                            echo "<option value=\"$index\">$length_category</option>";
                                             $index++;
                                         }
-                                        while ($length != null);
                                         ?>
                                     </select>
                                 </td>
@@ -161,12 +166,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                     <div id="caption">Вес</div>
                                 </td>
                                 <td>
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select name="weight_id">
+                                        <?php
+                                        // here could be some DRY mechanism but i'm too tired for such a small thing and no one will read it anyway
+                                        $statuses = get_all_weights();
+                                        $index = 1;
+                                        while ($status_category = $statuses->fetch_row()[0]) {
+                                            echo "<option value=\"$index\">$status_category</option>";
+                                            $index++;
+                                        }
+                                        ?>
                                     </select>
                                 </td>
                             </tr>
@@ -175,12 +184,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                     <div id="caption">Статус</div>
                                 </td>
                                 <td>
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select name="status_id">
+                                        <?php
+                                        $statuses = get_all_statuses();
+                                        $index = 1;
+                                        while ($status_category = $statuses->fetch_row()[0]) {
+                                            echo "<option value=\"$index\">$status_category</option>";
+                                            $index++;
+                                        }
+                                        ?>
                                     </select>
                                 </td>
                             </tr>
