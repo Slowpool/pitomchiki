@@ -2,30 +2,23 @@
 require_once __DIR__ . '\\session.php';
 require_once __DIR__ . '\\..\\functions.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    $new_pet_data = [
+        $_POST['name'],
+        $_POST['kind'],
+        $_POST['year_of_birth'],
+        $_POST['month_of_birth'],
+        $_POST['day_of_birth'],
+        $_POST['length_id'],
+        $_POST['weight_id'],
+        $_POST['status_id']
+    ];
+    update_pet_info($new_pet_data);
+}
+
 // TODO maybe it'll be better to select it to special function like download_pet_info()
 $GLOBALS['pet_data'] = get_pet_data($_SESSION['login']);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $kind = $_POST['kind'];
-    $year_of_birth = $_POST['year_of_birth'];
-    $month_of_birth = $_POST['month_of_birth'];
-    $day_of_birth = $_POST['day_of_birth'];
-    // $main_picture = $_POST['main_picture'];
-    $length_id = $_POST['length_id'];
-    $weight_id = $_POST['weight_id'];
-    $status_id = $_POST['status_id'];
-    update_pet_info($name, $kind, $year_of_birth, $month_of_birth, $day_of_birth, $length_id, $weight_id, $status_id);
-    // echo 'name:', $name, '<br>';
-    // echo 'kind:', $kind, '<br>';
-    // echo 'year_of_birth:', $year_of_birth, '<br>';
-    // echo 'month_of_birth:', $month_of_birth, '<br>';
-    // echo 'day_of_birth:', $day_of_birth, '<br>';
-    // echo 'length_id:', $length_id, '<br>';
-    // echo 'weight_id:', $weight_id, '<br>';
-    // echo 'status_id:', $status_id, '<br>';
-
-}
 ?>
 
 <!DOCTYPE html>
@@ -95,8 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                 </td>
                                 <td>
                                     <?php
-                                    $name = $GLOBALS['pet_data'][1];
-                                    echo '<input type="text" name="name" maxlength="50" value="' . $name . '">';
+                                    echo '<input type="text" name="name" maxlength="50" value="' . $GLOBALS['pet_data'][1] . '">';
                                     ?>
                                 </td>
                             </tr>
@@ -152,9 +144,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                     <select name="length_id">
                                         <?php
                                         $lengths = get_all_lengths();
+                                        $length_id = $GLOBALS['pet_data'][7];
                                         $index = 1;
                                         while ($length_category = $lengths->fetch_row()[0]) {
-                                            echo "<option value=\"$index\">$length_category</option>";
+                                            echo "<option value=\"$index\"" . ($index == $length_id ? " selected" : "") . ">$length_category</option>";
                                             $index++;
                                         }
                                         ?>
@@ -169,10 +162,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                     <select name="weight_id">
                                         <?php
                                         // here could be some DRY mechanism but i'm too tired for such a small thing and no one will read it anyway
-                                        $statuses = get_all_weights();
+                                        $weights = get_all_weights();
+                                        $weight_id = $GLOBALS['pet_data'][8];
                                         $index = 1;
-                                        while ($status_category = $statuses->fetch_row()[0]) {
-                                            echo "<option value=\"$index\">$status_category</option>";
+                                        while ($weight_category = $weights->fetch_row()[0]) {
+                                            echo "<option value=\"$index\"" . ($index == $weight_id ? " selected" : "") . ">$weight_category</option>";
                                             $index++;
                                         }
                                         ?>
@@ -188,8 +182,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                                         <?php
                                         $statuses = get_all_statuses();
                                         $index = 1;
+                                        $status_id = $GLOBALS['pet_data'][9];
                                         while ($status_category = $statuses->fetch_row()[0]) {
-                                            echo "<option value=\"$index\">$status_category</option>";
+                                            echo "<option value=\"$index\"" . ($index == $status_id ? " selected" : "") . ">$status_category</option>";
                                             $index++;
                                         }
                                         ?>

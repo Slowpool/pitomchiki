@@ -21,7 +21,7 @@ function openProfilePhotos(signed) {
 
 function openProfileFeatures(signed) {
     if (signed) {
-        window.location.replace("../signed_user/profile_features_s.html");
+        window.location.replace("../signed_user/profile_features_s.php");
     }
     else {
         window.location.replace("../unsigned_user/profile_features_us.html");

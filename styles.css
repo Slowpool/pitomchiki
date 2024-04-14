@@ -234,7 +234,7 @@ input[type=text] {
 }
 
 input[type=submit] {
-    height: 71px;
+    height: 45px;
     font-size: 36px;
     color: rgb(5, 0, 255);
     border-width: 2px;
@@ -242,24 +242,8 @@ input[type=submit] {
     margin-bottom: 40px;
 }
 
-
-
-/* #header h1 {
-            padding: 20px;
-            margin: 0;
-        }
-
-        #sidebar {
-            width: 150px;
-            background: #ECF5E4;
-            border-right: 1px solid #231F20;
-            top: 82px;
-            bottom: 0;
-        }
-
-        #content {
-            top: 82px;
-            left: 170px;
-            bottom: 0;
-            right: 0;
-        } */
+select {
+    font-size: 36px;
+    color: rgb(9, 14, 114);
+    width: 370px;
+}

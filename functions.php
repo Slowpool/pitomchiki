@@ -46,26 +46,32 @@ function get_pet_data($nickname)
     return $result_set->fetch_row();
 }
 
-function get_all_lengths() {
+function get_all_lengths()
+{
     return get_all_categories('length');
 }
 
-function get_all_weights() {
+function get_all_weights()
+{
     return get_all_categories('weight');
 }
 
-function get_all_statuses() {
+function get_all_statuses()
+{
     return get_all_categories('status');
 }
 
-function get_all_categories($table) {
+function get_all_categories($table)
+{
     return $GLOBALS['connection']->query("SELECT category FROM $table");
 }
 
-function update_pet_info($name, $kind, $year_of_birth, $month_of_birth, $day_of_birth, $length_id, $weight_id, $status_id) {
+function update_pet_info($new_pet_data)
+{
     $statement = $GLOBALS['connection']->prepare(
         'UPDATE pet
-         SET name = ?,
+         SET
+         name = ?,
          kind = ?,
          year_of_birth = ?,
          month_of_birth = ?,
@@ -73,10 +79,66 @@ function update_pet_info($name, $kind, $year_of_birth, $month_of_birth, $day_of_
          length_id = ?,
          weight_id = ?,
          status_id = ?
-         WHERE nickname = ?');
-    $statement->bind_param('ssiiiiiis', $name, $kind, $year_of_birth, $month_of_birth, $day_of_birth, $length_id, $weight_id, $status_id, $_SESSION['login']);
+         WHERE nickname = ?'
+    );
+    $statement->bind_param(
+        'ssiiiiiis',
+        $new_pet_data[0],
+        $new_pet_data[1],
+        $new_pet_data[2],
+        $new_pet_data[3],
+        $new_pet_data[4],
+        $new_pet_data[5],
+        $new_pet_data[6],
+        $new_pet_data[7],
+        $_SESSION['login']
+    );
     $statement->execute();
     $affected_rows = $statement->affected_rows;
     $statement->close();
     return $affected_rows == 1;
+}
+
+function add_appearance_feature($appearance_feature)
+{
+    $statement = $GLOBALS['connection']->prepare("INSERT INTO special_appearance_features VALUES (?, ?)");
+    $statement->bind_param('ss', $_SESSION['login'], $appearance_feature);
+    $statement->execute();
+    $affected_rows = $statement->affected_rows;
+    $statement->close();
+    return $affected_rows == 1;
+}
+
+function add_behavior_pattern($behavior_pattern)
+{
+    $statement = $GLOBALS['connection']->prepare("INSERT INTO behavior_patterns VALUES (?, ?)");
+    $statement->bind_param('ss', $_SESSION['login'], $behavior_pattern);
+    $statement->execute();
+    $affected_rows = $statement->affected_rows;
+    $statement->close();
+    return $affected_rows == 1;
+}
+
+function get_appearance_features($nickname)
+{
+    $statement = $GLOBALS['connection']->prepare("SELECT special_appearance_feature
+                                                  FROM special_appearance_features
+                                                  WHERE pet_nickname = ?");
+    $statement->bind_param('s', $nickname);
+    $statement->execute();
+    $result_set = $statement->get_result();
+    $statement->close();
+    return $result_set;
+}
+
+function get_behavior_patterns($nickname)
+{
+    $statement = $GLOBALS['connection']->prepare("SELECT behavior_pattern
+                                                  FROM behavior_patterns
+                                                  WHERE pet_nickname = ?");
+    $statement->bind_param('s', $nickname);
+    $statement->execute();
+    $result_set = $statement->get_result();
+    $statement->close();
+    return $result_set;
 }

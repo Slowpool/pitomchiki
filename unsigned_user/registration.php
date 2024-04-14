@@ -2,17 +2,13 @@
 
 require_once __DIR__ . '\\..\\functions.php';
 require_once __DIR__ . '\\..\\config.php';
+require_once __DIR__ . '\\..\\signed_user\\session.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
-    // TODO set max length to input instead of the next one
-    if (strlen($login) > 30) {
-        alert('Логин должен быть не длиннее 30 символов');
-    }
 
     if (!existent_login($login)) {
-        // TODO here could be transaction
         mysqli_begin_transaction($GLOBALS['connection']);
         // SQL INJECTION PROTECTION VIA SUBSTITUTION OF DATA THROUGH THE STATEMENT
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -26,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
         if ($statement->affected_rows == 1 && $statement2->affected_rows == 1) {
             mysqli_commit($GLOBALS['connection']);
+            $_SESSION["login"] = $login;
             header('location: ..\\signed_user\\profile_s.php');
         } else {
             mysqli_rollback($GLOBALS['connection']);
