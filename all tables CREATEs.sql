@@ -2,7 +2,7 @@ CREATE DATABASE pitomchiki;
 
 USE pitomchiki;
 
-DROP TABLE pet;
+-- DROP TABLE pet;
 
 CREATE TABLE pet
 (

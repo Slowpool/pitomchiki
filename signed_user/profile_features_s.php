@@ -2,13 +2,16 @@
 require_once __DIR__ . '\\session.php';
 require_once __DIR__ . '\\..\\functions.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    if ($_POST['action'] == 'Добавить черту') {
-        $special_appearance_feature = $_POST['special_appearance_feature'];
-        add_appearance_feature($special_appearance_feature);
-    } else {
-        $behavior_pattern = $_POST['behavior_pattern'];
-        add_behavior_pattern($behavior_pattern);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && $_POST['submit'] == true) {
+    switch ($_POST['submit']) {
+        case 'Добавить черту':
+            add_appearance_feature($_POST['special_appearance_feature']);
+            break;
+        case 'Добавить особенность':
+            add_behavior_pattern($_POST['behavior_pattern']);
+            break;
+        default:
+            break;
     }
 }
 
@@ -55,11 +58,13 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
             <br>
             <form action="" method="post">
                 <input type=text name="special_appearance_feature" maxlength="30">
-                <input type=submit name=action value="Добавить черту">
+                <input type=submit name=submit value="Добавить черту">
                 <ul>
                     <?php
-                    echo '<li>haha<li>'
-                        ?>
+                    while ($feature = $GLOBALS['appearance_features']->fetch_row()) {
+                        echo "<li>" . $feature[0] . "</li>";
+                    }
+                    ?>
                 </ul>
             </form>
 
@@ -68,11 +73,13 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
             <br>
             <form action="" method="post">
                 <input type=text name="behavior_pattern" maxlength="70">
-                <input type=submit value="Добавить особенность">
+                <input type=submit name=submit value="Добавить особенность">
                 <ul>
                     <?php
-                    echo '<li>haha<li>'
-                        ?>
+                    while ($behavior_pattern = $GLOBALS['behavior_patterns']->fetch_row()) {
+                        echo "<li>" . $behavior_pattern[0] . "<li>";
+                    }
+                    ?>
                 </ul>
             </form>
         </div>

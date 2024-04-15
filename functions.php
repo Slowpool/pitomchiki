@@ -101,6 +101,7 @@ function update_pet_info($new_pet_data)
 
 function add_appearance_feature($appearance_feature)
 {
+    alert('adding feature: ' . $appearance_feature);
     $statement = $GLOBALS['connection']->prepare("INSERT INTO special_appearance_features VALUES (?, ?)");
     $statement->bind_param('ss', $_SESSION['login'], $appearance_feature);
     $statement->execute();
@@ -111,6 +112,7 @@ function add_appearance_feature($appearance_feature)
 
 function add_behavior_pattern($behavior_pattern)
 {
+    alert('adding behavior_pattern: ' . $behavior_pattern);
     $statement = $GLOBALS['connection']->prepare("INSERT INTO behavior_patterns VALUES (?, ?)");
     $statement->bind_param('ss', $_SESSION['login'], $behavior_pattern);
     $statement->execute();
