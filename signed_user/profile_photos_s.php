@@ -11,7 +11,9 @@
     <script src="../scripts.js"></script>
     <div id="wide_page">
         <div id="main_header">питомчики</div>
-        <div id="caption_after_main_header">/Профиль/Фотографии</div>
+        <div id="caption_after_main_header">/Профиль/Фотографии
+            <a href="../log_out.php" role="button">Выйти</a>
+        </div>
         <table type="chapters" cellspacing="0">
             <tr>
                 <td>
@@ -32,7 +34,7 @@
             <div id="center">Фотографии питомчика</div>
         </div>
         <button type="download_button">Загрузить</button>
-        
+
     </div>
 </body>
 

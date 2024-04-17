@@ -144,3 +144,28 @@ function get_behavior_patterns($nickname)
     $statement->close();
     return $result_set;
 }
+
+function get_all_reviews($nickname)
+{
+    $statement = $GLOBALS['connection']->prepare("SELECT *
+                                                  FROM review
+                                                  WHERE pet_nickname = ?");
+    $statement->bind_param('s', $nickname);
+    $statement->execute();
+    $result_set = $statement->get_result();
+    $statement->close();
+    return $result_set;
+}
+
+function mark_review($pet_nickname, $review_id, $confirmed)
+{
+    $statement = $GLOBALS['connection']->prepare('UPDATE review
+                                                  SET verified = ?
+                                                  WHERE pet_nickname = ? && id = ?'
+    );
+    $statement->bind_param('isi', $confirmed, $pet_nickname, $review_id);
+    $statement->execute();
+    $affected_rows = $statement->affected_rows;
+    $statement->close();
+    return $affected_rows == 1;
+}

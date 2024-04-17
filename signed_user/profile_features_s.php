@@ -34,7 +34,10 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
     <script src="../scripts.js"></script>
     <div id="wide_page">
         <div id="main_header">питомчики</div>
-        <div id="caption_after_main_header">/Профиль/Особенности</div>
+        <div id="caption_after_main_header">/Профиль/Особенности
+            <a href="../log_out.php" role="button">Выйти</a>
+        </div>
+
         <table type="chapters" cellspacing="0">
             <tr>
                 <td>
@@ -56,8 +59,6 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
         </div>
         <div id="appearance_features_caption">
             Особенности внешнего вида
-            <br>
-            <br>
             <form type="features" action="" method="post">
                 <input type=text name="special_appearance_feature" maxlength="30">
                 <input type=submit name=submit value="Добавить черту">
@@ -69,10 +70,8 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
                     ?>
                 </ul>
             </form>
-
+            <br>
             Особенности поведения
-            <br>
-            <br>
             <form type="features" action="" method="post">
                 <input type=text name="behavior_pattern" maxlength="70">
                 <input type=submit name=submit value="Добавить особенность">
