@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && $_POST['s
         default:
             break;
     }
+    header('location: profile_features_s.php?state=new');
+    exit;
 }
 
 $GLOBALS['appearance_features'] = get_appearance_features($_SESSION['login']);
@@ -56,7 +58,7 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
             Особенности внешнего вида
             <br>
             <br>
-            <form action="" method="post">
+            <form type="features" action="" method="post">
                 <input type=text name="special_appearance_feature" maxlength="30">
                 <input type=submit name=submit value="Добавить черту">
                 <ul>
@@ -71,13 +73,13 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['login']);
             Особенности поведения
             <br>
             <br>
-            <form action="" method="post">
+            <form type="features" action="" method="post">
                 <input type=text name="behavior_pattern" maxlength="70">
                 <input type=submit name=submit value="Добавить особенность">
                 <ul>
                     <?php
                     while ($behavior_pattern = $GLOBALS['behavior_patterns']->fetch_row()) {
-                        echo "<li>" . $behavior_pattern[0] . "<li>";
+                        echo "<li>" . $behavior_pattern[0] . "</li>";
                     }
                     ?>
                 </ul>

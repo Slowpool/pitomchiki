@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '\\session.php';
+require_once __DIR__ . '\\..\\functions.php';
+
+$GLOBALS['reviews'] = $reviews = get_all_review($_SESSION['login']);
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -31,8 +38,32 @@
         <div id="more_big_caption">
             <div id="center">Отзывы о питомчике</div>
         </div>
-        
-        
+        <div id="reviews_block">
+            <?php
+            foreach($GLOBALS['reviews'] as $review) {
+
+                echo $review[3];
+                echo '&#183;';
+                echo '<div id="review_date">';
+                echo $review[2];
+                echo '&#183;';
+                if ($review[5] == null) {
+                    // buttons:
+                    // Confirm / Refute 
+                }
+                else {
+                    echo $review[5] ? 'Подтвержденный' : 'Опровергнутый';
+                }
+                echo '</div>';
+                echo '<br>';
+                echo $review[4];
+                echo '<br>';
+                echo '<br>';
+        }
+            ?>
+
+        </div>
+
     </div>
 </body>
 

@@ -10,7 +10,6 @@ body {
     text-align: center;
 }
 
-/* id */
 #unreg_main_header {
     position: absolute;
     left: 510px;
@@ -19,7 +18,6 @@ body {
     text-transform: uppercase;
 }
 
-/* id */
 #main_header {
     position: absolute;
     left: 255px;
@@ -28,7 +26,6 @@ body {
     text-transform: uppercase;
 }
 
-/* id */
 #unreg_caption_after_main_header {
     position: absolute;
     padding-top: 31px;
@@ -37,7 +34,6 @@ body {
     color: rgb(9, 14, 114);
 }
 
-/* id */
 #caption_after_main_header {
     position: absolute;
     padding-top: 31px;
@@ -46,7 +42,6 @@ body {
     color: rgb(9, 14, 114);
 }
 
-/* id */
 #upper_header {
     font-size: 36px;
     color: white;
@@ -56,7 +51,6 @@ body {
     padding-top: 100px;
 }
 
-/* id */
 #caption {
     /* padding-left: 929px; */
     color: white;
@@ -64,14 +58,11 @@ body {
     font-size: 32px;
 }
 
-/* id */
 #more_big_caption {
     color: white;
     font-size: 36px;
-    /* font-family: "Open Sans"; */
 }
 
-/* id */
 #appearance_features_caption {
     margin-top: 20px;
     margin-left: 350px;
@@ -80,16 +71,23 @@ body {
 
 }
 
-/* id */
 #content_block {
     padding-top: 100px;
     text-align: center;
 }
 
-/* a[type="without_underline"] {
-    text-decoration: none;
-    color:rgb(5, 0, 255);
-} */
+#reviews_block {
+    margin-top: 20px;
+    margin-left: 350px;
+    width: 1100px;
+    font-size: 36px;
+}
+
+#review_date {
+    color: rgb(8, 0, 100);
+    font-size: 36px;
+    display: inline;
+}
 
 input[type="q"] {
     color: rgb(9, 14, 114);
@@ -246,4 +244,9 @@ select {
     font-size: 36px;
     color: rgb(9, 14, 114);
     width: 370px;
+}
+
+form[type="feature"] {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }

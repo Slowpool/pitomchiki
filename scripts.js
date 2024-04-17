@@ -30,10 +30,10 @@ function openProfileFeatures(signed) {
 
 function openProfileReviews(signed) {
     if (signed) {
-        window.location.replace("../signed_user/profile_reviews_s.html");
+        window.location.replace("../signed_user/profile_reviews_s.php");
     }
     else {
-        window.location.replace("../unsigned_user/profile_reviews_us.html");
+        window.location.replace("../unsigned_user/profile_reviews_us.php");
     }
 }
 
