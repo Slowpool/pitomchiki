@@ -40,3 +40,8 @@ function openProfileReviews(signed) {
 function logOut() {
     window.location.replace("C:/Users/azgel/Desktop/OSPanel/domains/localhost/pitomchiki/log_out.php");
 }
+
+function fileInputClick() {
+    alert('click handled');
+    $("#fileInput").click();
+}

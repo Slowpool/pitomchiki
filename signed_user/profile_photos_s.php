@@ -1,3 +1,16 @@
+<?php
+require_once __DIR__ . '\\session.php';
+require_once __DIR__ . '\\..\\functions.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $imagename = $_FILES["uploaded_image"]["name"];
+    $image_content = file_get_contents($_FILES['uploaded_image']['tmp_name']);
+    insert_picture($_SESSION['login'], $image_content, $imagename);
+    header('location: profile_photos_s.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -30,10 +43,29 @@
                 </td>
             </tr>
         </table>
-        <div id="more_big_caption">
-            <div id="center">Фотографии питомчика</div>
+        <div id="photos_block">
+            <table>
+                <tr>
+                    <td width="340">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <input type="file" name="uploaded_image">
+                            <input type="submit" name="input_submit" style="margin-bottom: 0px;" value="Загрузить">
+                        </form>
+                    </td>
+                    <td width="400">
+                        <div id="more_big_caption">
+                            <div id="center">Фотографии питомчика</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <?php
+            $all_pictures = get_all_pictures($_SESSION['login']);
+            while (($picture_info = $all_pictures->fetch_assoc()) != null) {
+                echo "<img src=" . $picture_info['picture'] . " width=200 height=200>";
+            }
+            ?>
         </div>
-        <button type="download_button">Загрузить</button>
 
     </div>
 </body>
