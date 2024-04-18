@@ -5,7 +5,7 @@ function openProfile(signed) {
         window.location.replace("../signed_user/profile_s.php");
     }
     else {
-        window.location.replace("../unsigned_user/profile_us.html");
+        window.location.replace("../unsigned_user/profile_us.php");
     }
 }
 

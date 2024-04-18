@@ -269,3 +269,7 @@ ul{
     padding: 0px;
     display: inline;
 }
+
+select:disabled {
+    opacity: 10.0;
+}
