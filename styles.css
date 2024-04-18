@@ -94,9 +94,15 @@ body {
     display: inline;
 }
 
-#review_verification_button {
+#review_verification_button,
+#leave_review {
     margin-right: 40px;
     margin-bottom: 0px;
+}
+
+#profile_data_us {
+    font-size: 36px;
+    color: rgb(5, 0, 255);
 }
 
 input[type="q"] {
@@ -272,4 +278,9 @@ ul{
 
 select:disabled {
     opacity: 10.0;
+}
+
+img[type="photo"] {
+    margin-left: 40px;
+    margin-top: 40px;
 }

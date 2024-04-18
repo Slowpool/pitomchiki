@@ -70,7 +70,8 @@ $GLOBALS['pet_data'] = get_pet_data($_SESSION['login']);
                             </tr>
                             <tr>
                                 <td type="align_center">
-                                    <img src="../images/shpatel.jpg" height="350" width="350">
+                                    <img src=<?php echo "../images/" . $_SESSION['login'] . "2.jpg" ?>
+                                        height="350" width="350">
                                 </td>
                             </tr>
                             <tr>

@@ -147,7 +147,8 @@ function get_all_reviews($pet_nickname)
 {
     $statement = $GLOBALS['connection']->prepare("SELECT *
                                                   FROM review
-                                                  WHERE pet_nickname = ?");
+                                                  WHERE pet_nickname = ?
+                                                  ORDER BY creation_date DESC");
     $statement->bind_param('s', $pet_nickname);
     $statement->execute();
     $result_set = $statement->get_result();
@@ -188,4 +189,14 @@ function get_all_pictures($pet_nickname) {
     $result_set = $statement->get_result();
     $statement->close();
     return $result_set;
+}
+
+function add_review($pet_nickname, $content, $author) {
+    $statement = $GLOBALS['connection']->prepare("INSERT INTO review (pet_nickname, author_name, content)
+                                                  VALUES (?, ?, ?)");
+    $statement->bind_param('sss', $pet_nickname, $author, $content);
+    $statement->execute();
+    $affected_rows = $statement->affected_rows;
+    $statement->close();
+    return $affected_rows == 1;
 }

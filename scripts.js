@@ -14,17 +14,16 @@ function openProfilePhotos(signed) {
         window.location.replace("../signed_user/profile_photos_s.php");
     }
     else {
-        window.location.replace("../unsigned_user/profile_photos_us.html");
+        window.location.replace("../unsigned_user/profile_photos_us.php");
     }
 }
-
 
 function openProfileFeatures(signed) {
     if (signed) {
         window.location.replace("../signed_user/profile_features_s.php");
     }
     else {
-        window.location.replace("../unsigned_user/profile_features_us.html");
+        window.location.replace("../unsigned_user/profile_features_us.php");
     }
 }
 
@@ -33,7 +32,7 @@ function openProfileReviews(signed) {
         window.location.replace("../signed_user/profile_reviews_s.php");
     }
     else {
-        window.location.replace("../unsigned_user/profile_reviews_us.html");
+        window.location.replace("../unsigned_user/profile_reviews_us.php");
     }
 }
 

@@ -60,13 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
             </table>
             <?php
-            $all_pictures = get_all_pictures($_SESSION['login']);
-            while (($picture_info = $all_pictures->fetch_assoc()) != null) {
-                echo "<img src=" . $picture_info['picture'] . " width=200 height=200>";
-            }
+            echo "<img type=\"photo\" src=../images/" . $_SESSION['login'] . ".jpg width=300 height=300>";
+            echo "<img type=\"photo\" src=../images/" . $_SESSION['login'] . "2.jpg width=300 height=300>";
+            echo "<img type=\"photo\" src=../images/" . $_SESSION['login'] . "3.jpg width=300 height=300>";
+            echo "<img type=\"photo\" src=../images/" . $_SESSION['login'] . "4.jpg width=300 height=300>";
             ?>
         </div>
-
     </div>
 </body>
 

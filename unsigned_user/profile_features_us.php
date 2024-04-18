@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '\\session_us.php';
+require_once __DIR__ . '\\..\\functions.php';
+
+$GLOBALS['appearance_features'] = get_appearance_features($_SESSION['pet_nickname']);
+$GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['pet_nickname']);
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -8,11 +15,14 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body background="../images/home_sweet_home.jpg" link="white" alink="grey" vlink="white">
+<body background="../images/background_animals_wide.png" link="white" alink="grey" vlink="white">
     <script src="../scripts.js"></script>
     <div id="wide_page">
         <div id="main_header">питомчики</div>
-        <div id="caption_after_main_header">/Профиль/Особенности</div>
+        <div id="caption_after_main_header">/Профиль @<?php echo $_SESSION['pet_nickname'];?>/Особенности
+            <a href="../log_out.php" role="button">На главную</a>
+        </div>
+
         <table type="chapters" cellspacing="0">
             <tr>
                 <td>
@@ -33,19 +43,27 @@
             <div id="center">Особенности питомчика</div>
         </div>
         <div id="appearance_features_caption">
-            Особенности внешнего вида &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Особенности внешнего вида
             <ul>
-                <li>красивые глазки</li>
-                <li>пушистич</li>
+                <?php
+                while ($feature = $GLOBALS['appearance_features']->fetch_row()) {
+                    echo "<li>" . $feature[0] . "</li>";
+                }
+                ?>
             </ul>
-
-            Особенности поведения &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <ul>
-                <li>красивые глазки</li>
-                <li>пушистич</li>
-            </ul>
+            <br>
+            Особенности поведения
+            <form type="features" action="" method="post">
+                <ul>
+                    <?php
+                    while ($behavior_pattern = $GLOBALS['behavior_patterns']->fetch_row()) {
+                        echo "<li>" . $behavior_pattern[0] . "</li>";
+                    }
+                    ?>
+                </ul>
+            </form>
         </div>
-        
+
     </div>
 </body>
 
