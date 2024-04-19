@@ -66,8 +66,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </table>
         </form>
     </div>
-    <div id="content_block">
-
+    <div id="scroll_ribbon">
+        <table>
+            <tr>
+                <td width="80">
+                    <img src="images\ferret_tosha2.jpg" width=80 height=80>
+                </td>
+                <td>
+                    <div id="more_big_caption">
+                        Тоша &#183; хорек
+                        <div id="nickname">@ferret_tosha</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img src="images\ferret_tosha3.jpg" width=555>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 

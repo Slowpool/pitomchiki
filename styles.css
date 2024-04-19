@@ -105,6 +105,15 @@ body {
     color: rgb(5, 0, 255);
 }
 
+#scroll_ribbon {
+    margin-left:620px;
+}
+
+#nickname {
+    font-size: 24px;
+    color: rgb(108, 108, 108);
+}
+
 input[type="q"] {
     color: rgb(9, 14, 114);
     background-color: rgb(217, 217, 217);
