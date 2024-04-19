@@ -32,9 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="header_block">
         <div id="unreg_main_header">
             питомчики
-
-            <!-- <a href="index.html"> -->
-            <!-- </a> -->
         </div>
         <div id="unreg_caption_after_main_header">/Главная</div>
         <form action="" method="post">

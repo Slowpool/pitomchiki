@@ -16,7 +16,7 @@ require_once __DIR__ . '\\..\\functions.php';
     <script src="../scripts.js"></script>
     <div id="wide_page">
         <div id="main_header">питомчики</div>
-        <div id="caption_after_main_header">/Профиль @<?php echo $_SESSION['pet_nickname'];?>/Фотографии
+        <div id="caption_after_main_header">/Профиль @<?php echo $_SESSION['pet_nickname']; ?>/Фотографии
             <a href="../log_out.php" role="button">На главную</a>
         </div>
         <table type="chapters" cellspacing="0">
@@ -36,21 +36,9 @@ require_once __DIR__ . '\\..\\functions.php';
             </tr>
         </table>
         <div id="photos_block">
-            <table>
-                <tr>
-                    <td width="340">
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            <input type="file" name="uploaded_image">
-                            <input type="submit" name="input_submit" style="margin-bottom: 0px;" value="Загрузить">
-                        </form>
-                    </td>
-                    <td width="400">
-                        <div id="more_big_caption">
-                            <div id="center">Фотографии питомчика</div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div id="more_big_caption">
+                <div id="center">Фотографии питомчика</div>
+            </div>
             <?php
             echo "<img type=\"photo\" src=../images/" . $_SESSION['pet_nickname'] . ".jpg width=300 height=300>";
             echo "<img type=\"photo\" src=../images/" . $_SESSION['pet_nickname'] . "2.jpg width=300 height=300>";

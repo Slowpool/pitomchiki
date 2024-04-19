@@ -169,7 +169,8 @@ function mark_review($pet_nickname, $review_id, $confirmed)
     return $affected_rows == 1;
 }
 
-function insert_picture($pet_nickname, $image_content, $imagename) {
+function insert_picture($pet_nickname, $image_content, $imagename)
+{
     $statement = $GLOBALS['connection']->prepare("INSERT INTO other_pictures (pet_nickname, picture, name)
                                                   VALUES (?, ?, ?)");
     $statement->bind_param('sbs', $_SESSION['login'], $image_content, $imagename);
@@ -179,7 +180,8 @@ function insert_picture($pet_nickname, $image_content, $imagename) {
     return $affected_rows == 1;
 }
 
-function get_all_pictures($pet_nickname) {
+function get_all_pictures($pet_nickname)
+{
     $statement = $GLOBALS['connection']->prepare("SELECT *
                                                   FROM other_pictures
                                                   WHERE pet_nickname = ?
@@ -191,7 +193,8 @@ function get_all_pictures($pet_nickname) {
     return $result_set;
 }
 
-function add_review($pet_nickname, $content, $author) {
+function add_review($pet_nickname, $content, $author)
+{
     $statement = $GLOBALS['connection']->prepare("INSERT INTO review (pet_nickname, author_name, content)
                                                   VALUES (?, ?, ?)");
     $statement->bind_param('sss', $pet_nickname, $author, $content);

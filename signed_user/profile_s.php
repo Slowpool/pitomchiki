@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     update_pet_info($new_pet_data);
 }
 
-// TODO maybe it'll be better to select it to special function like download_pet_info()
 $GLOBALS['pet_data'] = get_pet_data($_SESSION['login']);
 
 ?>

@@ -46,13 +46,10 @@ body {
     font-size: 36px;
     color: white;
     text-align: center;
-    /* idk which way is the best */
-    /* padding-left: 790px; */
     padding-top: 100px;
 }
 
 #caption {
-    /* padding-left: 929px; */
     color: white;
     padding-left: 13px;
     font-size: 32px;

@@ -63,7 +63,6 @@ $GLOBALS['behavior_patterns'] = get_behavior_patterns($_SESSION['pet_nickname'])
                 </ul>
             </form>
         </div>
-
     </div>
 </body>
 
